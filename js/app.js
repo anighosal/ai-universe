@@ -30,7 +30,8 @@ const showAllData = (data) => {
         <div> <h5 class="card-title">${singleTool.name}</h5>
         <small class="text-muted">${singleTool.published_in}</small></div>
 
-      <i class="fas fa-arrow-right mt-3" onclick = "loadToolDetails('${single.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" </i></div>
+        <i class="fas fa-arrow-right text-danger mt-4" onclick="showToolDetails('${singleTool.id}')" data-bs-toggle="modal"
+        data-bs-target="#exampleModal"></i>
      
     
       
