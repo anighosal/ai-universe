@@ -14,6 +14,9 @@ const showAllData = (data) => {
     console.log(singleTool);
     // step-2 create child for each element
     const toolDiv = document.createElement("div");
+    toolDiv.classList.add("col");
+
+    // step-3 set content of the child
   });
 };
 
