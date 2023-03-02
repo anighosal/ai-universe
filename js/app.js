@@ -7,7 +7,7 @@ const loadAllData = () => {
 };
 
 const showAllData = (data) => {
-  //   console.log(data);
+  // console.log(data);
   //   step-1 container element
   const toolsContainer = document.getElementById("tools-container");
   data.tools.slice(0, 6).forEach((singleTool) => {
@@ -28,10 +28,10 @@ const showAllData = (data) => {
       <hr>
      <div class = "d-flex justify-content-between">
         <div> <h5 class="card-title">${singleTool.name}</h5>
-        <small class="text-muted">11/01/2022</small></div>
+        <small class="text-muted">${singleTool.published_in}</small></div>
 
-      <i class="fas fa-arrow-right mt-3" data-bs-toggle="modal"
-      data-bs-target="#exampleModal"></i></div>
+      <i class="fas fa-arrow-right mt-3" onclick = "loadToolDetails('${single.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" </i></div>
+     
     
       
       
@@ -46,5 +46,14 @@ const showAllData = (data) => {
     toolsContainer.appendChild(toolDiv);
   });
 };
+
+const loadToolDetails = (id) => {
+  const url = `  https://openapi.programming-hero.com/api/ai/tool/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => showToolDetails(data.data));
+};
+
+const showToolDetails = (toolDetail) => {};
 
 loadAllData();
