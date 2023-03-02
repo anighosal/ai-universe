@@ -8,8 +8,12 @@ const loadAllData = () => {
 
 const showAllData = (data) => {
   //   console.log(data);
+  //   step-1 container element
+  const toolsContainer = document.getElementById("tools-container");
   data.tools.forEach((singleTool) => {
     console.log(singleTool);
+    // step-2 create child for each element
+    const toolDiv = document.createElement("div");
   });
 };
 
