@@ -22,7 +22,12 @@ const showAllData = (data) => {
     <img src="${singleTool.image}" class="card-img-top p-3" alt="..." />
     <div class="card-body">
       <h5 class="card-title">Features</h5>
-   
+      <small class="text-muted">1. Natural language processing</small> <br>
+      <small class="text-muted">2. Contextual understanding</small> <br>
+      <small class="text-muted">3. Text generation</small>
+      <hr>
+      <h5 class="card-title">${singleTool.name}</h5>
+    
       
       
       
