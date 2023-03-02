@@ -3,14 +3,7 @@ const loadAllData = () => {
 
   fetch(url)
     .then((response) => response.json())
-    .then((data) => showAllData(data.data));
+    .then((data) => console.log(data.data));
 };
 
-const showAllData = (data) => {
-  console.log(data);
-  data.tools.forEach((singleTool) => {
-    console.log(singleTool);
-    const toolDiv = document.createElement("div");
-  });
-};
 loadAllData();
