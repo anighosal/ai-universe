@@ -13,6 +13,7 @@ const showAllData = (allData) => {
   //   step-1 container element
 
   const toolsContainer = document.getElementById("tools-container");
+  toolsContainer.innerHTML = "";
 
   allData.forEach((singleTool) => {
     console.log(singleTool);
@@ -48,6 +49,7 @@ const showAllDataTogether = () => {
     .then((response) => response.json())
     .then((data) => showAllData(data.data.tools));
 };
+showAllData();
 
 const toggleSpinner = (isLoading) => {
   const loaderSection = document.getElementById("loader");
@@ -87,12 +89,18 @@ const showToolDetails = (tool) => {
 <div class="card-body row">
 <div class="row row-cols-lg-3 gap-2">
 
-<p class="card-text bg-body w-[132px] rounded fw-semibold text-center text-success col ">${tool.pricing[0].price}<br>${tool.pricing[0].plan}</p>
+<p class="card-text bg-body w-[132px] rounded fw-semibold text-center text-success col ">${
+    tool.pricing[0].price ? tool.pricing[0].price : "free of cost basic"
+  }<br>${tool.pricing[0].plan}</p>
 
-<p class="card-text bg-body rounded fw-semibold text-warning col">${tool.pricing[1].price}<br>${tool.pricing[1].plan}</p>
+<p class="card-text bg-body rounded fw-semibold text-warning col">${
+    tool.pricing[1].price
+  }<br>${tool.pricing[1].plan}</p>
 
 
-<p class="card-text bg-body rounded fw-semibold text-center text-danger col">${tool.pricing[2].price}${tool.pricing[2].plan}</p>
+<p class="card-text bg-body rounded fw-semibold text-center text-danger col">${
+    tool.pricing[2].price
+  }${tool.pricing[2].plan}</p>
 
 </div>
  
@@ -115,8 +123,12 @@ const showToolDetails = (tool) => {
 <img class="card-img-top p-3 img-fluid" src="${tool.image_link[1]}
 " alt="" srcset="">
 <div class="card-body">
-  <h6 class="card-text text-black text-center">${tool.input_output_examples[0].input}</h6>
-  <small class="card-text text-black text-center">${tool.input_output_examples[0].output}</small>
+  <h6 class="card-text text-black text-center">${
+    tool.input_output_examples[0].input
+  }</h6>
+  <small class="card-text text-black text-center">${
+    tool.input_output_examples[0].output
+  }</small>
   
 </div>
 </div>
