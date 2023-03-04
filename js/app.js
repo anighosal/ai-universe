@@ -48,8 +48,34 @@ const showAllData = (tools) => {
           `;
     toolsContainer.appendChild(toolDiv);
   });
+  // stop loader
+  toggleSpinner(false);
 };
 
+// loader btn clicked
+
+// const btnShow = document.getElementById("btn-show-all");
+// start loader
+const btnShow = document
+  .getElementById("btn-show-all")
+  .addEventListener("click", function () {
+    const btnShow = document.getElementById("btn-show-all");
+    const btnField = btnShow.innerText;
+    toggleSpinner(true);
+    loadAllData(btnField);
+    showAllDataTogether(btnField);
+  });
+
+const toggleSpinner = (isLoading) => {
+  const loaderSection = document.getElementById("loader");
+  if (isLoading) {
+    loaderSection.classList.remove("d-none");
+  } else {
+    loaderSection.classList.add("d-none");
+  }
+};
+
+// load single data
 const loadToolDetails = (id) => {
   const url = `https://openapi.programming-hero.com/api/ai/tool/01`;
   console.log(url);
@@ -74,12 +100,18 @@ const showToolDetails = (tool) => {
 <div class="row row-cols-lg-3 gap-2">
 
 
-<p class="card-text bg-body w-[132px] rounded fw-semibold text-center text-success col ">${tool.pricing[0].price}<br>${tool.pricing[0].plan}</p>
+<p class="card-text bg-body w-[132px] rounded fw-semibold text-center text-success col ">${
+    tool.pricing[0].price ? tool.pricing[0].price : "Free of <br>cost basic"
+  }<br>${tool.pricing[0].plan}</p>
 
-<p class="card-text bg-body rounded fw-semibold text-warning col">${tool.pricing[1].price}<br>${tool.pricing[1].plan}</p>
+<p class="card-text bg-body rounded fw-semibold text-warning col">${
+    tool.pricing[1].price
+  }<br>${tool.pricing[1].plan}</p>
 
 
-<p class="card-text bg-body rounded fw-semibold text-center text-danger col">${tool.pricing[2].price}${tool.pricing[2].plan}</p>
+<p class="card-text bg-body rounded fw-semibold text-center text-danger col">${
+    tool.pricing[2].price
+  }${tool.pricing[2].plan}</p>
 
 </div>
  
@@ -102,8 +134,12 @@ const showToolDetails = (tool) => {
 <img class="card-img-top p-3 img-fluid" src="${tool.image_link[1]}
 " alt="" srcset="">
 <div class="card-body">
-  <h6 class="card-text text-black text-center">${tool.input_output_examples[0].input}</h6>
-  <small class="card-text text-black text-center">${tool.input_output_examples[0].output}</small>
+  <h6 class="card-text text-black text-center">${
+    tool.input_output_examples[0].input
+  }</h6>
+  <small class="card-text text-black text-center">${
+    tool.input_output_examples[0].output
+  }</small>
   
 </div>
 </div>
@@ -113,15 +149,6 @@ const showToolDetails = (tool) => {
 
 
      `;
-};
-
-const toggleSpinner = (isLoading) => {
-  const loaderSection = document.getElementById("loader");
-  if (isLoading) {
-    loaderSection.classList.remove("d-none");
-  } else {
-    loaderSection.classList.add("d-none");
-  }
 };
 
 // no the best way to load show all

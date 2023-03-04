@@ -23,6 +23,7 @@
     </header>
     <main>
       <!-- MAIN CONTAINER -->
+      <!-- card -->
       <section class="container mt-5">
         <div
           id="tools-container"
@@ -30,13 +31,23 @@
         ></div>
       </section>
 
-      <!-- display & loader -->
+<!-- loader -->
+      <section id="loader" class="d-none">
+        <div style="height: 1000px
+        ;" class="d-flex justify-content-center text-success">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- display  -->
 
       <div id="show-all" class="text-center">
         <button onClick="showAllDataTogether()"  id="btn-show-all" type="button" class="btn btn-danger text-center">Show All</button>
       </div>
     </section>
-    <!-- loader -->
+    
     <!-- <section id="loader" class="d-none">
       <div
         
